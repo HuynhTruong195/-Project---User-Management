@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- thư viện mã hóa hash với CryptoJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script> 
+</head>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+<body>
+
+
+    <div class="container">
+        <!--  NOTTIFICATION -->
+        <div class="imgNotification">
+            <div id="error" style="display: none;">
+                <div class="headError">
+                    <img src="./assets/icons/Header_Error.png" alt="">
+                </div>
+                <div class="textError">Email không được bỏ trống<br>
+                    Mật khẩu không được bỏ trống
+                </div>
+            </div>
+            <div id="logged_in" style="display: none;">
+                <div class="loggedText">
+                    <img src="./assets/icons/check_circle.png" alt="">
+                    <span> Đăng nhập thành công</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- REGISTER -->
+        <form action="#" id="form-signup" style="display: none;">
+            <img src="./assets/images/trello.png" alt="" class="image">
+            <p class="text-headsignup"> Please sign up</p>
+
+            <label for="#">
+                <input type="email" required placeholder=" Email address" id="email" class="input">
+            </label>
+            <label for="username">
+                <input type="text" placeholder=" Username" id="username" class="input">
+            </label>
+
+            <label for="password" class="hideShowPass">
+                <input type="password" placeholder=" Password" id="password" class="input">
+                <i onclick="showHidePassReg()" class="fa-duotone fa-solid fa-eye"></i>
+            </label>
+
+            <p class="text-footsignup">Already have an account, <a onclick="backLogin()" href="#">click here!</a></p>
+            <button type="submit" id="btn-signup">Sign up</button>
+            <p class="coppyright"> &copy; 2025 - Rikkei Education</p>
+        </form>
+
+        <!-- LOGIN -->
+        <form action="#" id="form-login" style="display: block;">
+            <img src="./assets/images/trello.png" alt="" class="imageLogin">
+            <p class="text-headsignup"> Please sign in</p>
+
+            <label for="#">
+                <input type="email" required placeholder=" Email address" id="emailLogin" class="input">
+            </label>
+
+
+            <label for="password" class="hideShowPass">
+                <input type="password" placeholder=" Password" id="passwordLogin" class="input">
+                <i onclick="showHidePasslogin()" class="fa-duotone fa-solid fa-eye"></i>
+                
+            </label>
+            <div id="rememberMe"><input id="checkStatus" type="checkbox">Remember me</div>
+            <p class="text-footsignin">Don't have an account,
+                <a id="comeRegister" onclick="comeRegister()" href="#">click here!</a>
+            </p>
+            <button type="submit" id="btn-signin">Sign in</button>
+            <p class="coppyright"> &copy; 2025 - Rikkei Education</p>
+
+        </form>
+
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

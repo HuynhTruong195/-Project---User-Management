@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="./styleDashboard.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<body>
+    <!-- User manager -->
+
+    <div class="container" id="container" style="display: block;">
+        <div class="headDashboard"><img src="../assets/images/logoTrello.png" alt="#" id="imgLogo"></div>
+        <div class="content">
+
+            <!-- NAV BAR -->
+            <nav id="navbar">
+                <p>YOUR DASHBOARD</p>
+                <nav class="navTextIcon">
+                    <img class="icon" src="../assets/icons/Icon user dashboard.png" alt=""> <a href="#"> User
+                        dashboard</a>
+                </nav>
+                <nav class="navTextIcon">
+                    <img class="icon" src="../assets/icons/Icon Add new user.png" alt="">
+                    <a id="add" href="#"> Add new user</a>
+                </nav>
+                <hr>
+                <nav class="navTextIcon">
+                    <img class="icon" src="../assets/icons/Icon Sign out.png" alt="">
+                    <a onclick="signOut()" href="#"> Sign out</a>
+                </nav>
+            </nav>
+
+            <!-- USER MANAGEMENT -->
+            <div id="sidebar">
+                <h1> <img src="../assets/icons/Icon User Manager.png" alt="" class="iconManager"> User Management</h1>
+                <hr>
+                <!-- SEARCH USER -->
+                <div class="tabSearch">
+                    <label for="#"></label>
+                    <input type="search" id="search" oninput="searchUser()" placeholder="Search user by name">
+                    <img class="iconSearch" src="../assets/icons/icol search.png" alt="">
+                </div>
+                <table class="table">
+                    <thead class="Head">
+                        <tr>
+                            <th class="tbHead">User code</th>
+                            <th class="tbHead">Username</th>
+                            <th class="tbHead">Email</th>
+                            <th class="tbHead">Role</th>
+                            <th class="tbHead">Birthday</th>
+                            <th class="tbHead">Status</th>
+                            <th class="tbHead">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userInfo">
+
+
+
+
+                    </tbody>
+                </table>
+                <ul id="numberPage">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Add new user -->
+
+    <div class="containerAdd" id="containerAdd" style="display: none">
+        <div class="headDashboard"><img src="../assets/images/logoTrello.png" alt="#" id="imgLogo"></div>
+        <div class="content">
+
+            <nav id="navbar">
+                <p>YOUR DASHBOARD</p>
+                <nav class="navTextIcon">
+                    <img class="icon" src="../assets/icons/Icon user dashboard.png" alt="">
+                    <a id="userDashboardAdd" href="#" onclick="dashboard()"> User
+                        dashboard</a>
+                </nav>
+                <nav class="navTextIcon">
+                    <img class="icon" src="../assets/icons/Icon Add new user.png" alt="">
+                    <a href="#"> Add new user</a>
+                </nav>
+                <hr>
+                <nav class="navTextIcon">
+                    <img class="icon" src="../assets/icons/Icon Sign out.png" alt="">
+                    <a onclick="signOut()" href="#"> Sign out</a>
+                </nav>
+            </nav>
+
+            <div class="sidebarAdd">
+                <h1><img src="../assets/icons/Icon User Manager.png" alt="" class="iconManager"> User Management</h1>
+                <hr>
+                <p>Add new user</p>
+                <!-- INPUT ADD USER -->
+                <div action="#" class="formAdd">
+                    <div class="form-group">
+                        <label for="usercode"> User code</label>
+                        <input type="text" id="idcode" class="input" readonly>
+                        <!--readonly chỉ đọc không chỉnh sửa -->
+
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="input">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username </label>
+                        <input type="text" id="username" class="input">
+
+                        <label for="password">Password </label>
+                        <input type="password" id="password" class="input">
+                    </div>
+                </div>
+                <div class="formAddsecond">
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select name="" id="option" class="option">
+                            <option value="admin">ADMIN</option>
+                            <option value="user">USER</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">Birthday</label>
+                        <input type="date" id="date" class="option" value="30/1/2024">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status </label>
+                        <div id="checkbox">
+                            <input id="active" type="checkbox">Active
+                            <input id="nonactive" class="checkText" type="checkbox">Deactivate
+                        </div>
+                    </div>
+                </div>
+                <div class="decription">
+                    <label for="decription"><b>Decription</b>
+                        <br>
+                        <textarea name="" id="textarea"></textarea>
+
+                    </label>
+                    <div class="button">
+                        <button id="btn-Back">Back</button>
+                        <button id="btn-Add">Add+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- EDIT USER -->
+    <div class="containerEdit" id="containerEdit" style="display: none">
+        <div class="headDashboard"><img src="../assets/images/logoTrello.png" alt="#" id="imgLogo"></div>
+        <div class="content">
+
+            <nav id="navbar">
+                <p>YOUR DASHBOARD</p>
+                <nav class="navTextIcon">
+                    <img class="icon" src="../assets/icons/Icon user dashboard.png" alt="">
+                    <a id="userDashboardEdit" href="#" onclick="dashboard()"> User
+                        dashboard</a>
+                </nav>
+                <nav class="navTextIcon">
+                    <img class="icon" src="../assets/icons/Icon Add new user.png" alt="">
+                    <a id="backAddUser" href="#"> Add new user</a>
+                </nav>
+                <hr>
+                <nav class="navTextIcon">
+                    <img class="icon" src="../assets/icons/Icon Sign out.png" alt="">
+                    <a onclick="signOut()" href="#"> Sign out</a>
+                </nav>
+            </nav>
+
+            <div class="sidebarAdd">
+                <h1><img src="../assets/icons/Icon User Manager.png" alt="" class="iconManager"> User Management</h1>
+                <hr>
+                <p>Edit user</p>
+                <!-- INPUT EDIT USER -->
+                <div class="formEdit">
+                    <div class="form-group">
+                        <label for="usercode"> User code</label>
+                        <input id="idEditUsercode" type="text" class="input" readonly>
+
+
+                        <label for="email">Email</label>
+                        <input id="editEmail" type="email" class="input">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username </label>
+                        <input id="editUsername" type="text" class="input">
+
+                        <label for="password">Password </label>
+                        <input id="editPassword" type="password" class="input">
+                    </div>
+                </div>
+                <div class="formAddsecond">
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select name="" id="editOption" class="option">
+                            <option value="admin">ADMIN</option>
+                            <option value="user">USER</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthday">Birthday</label>
+                        <input type="date" id="editDate" class="option" value="30/1/2024">
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Status </label>
+                        <div id="checkbox">
+                            <input id="editActive" type="checkbox" class="inputCheck">Active
+                            <input id="editNonactive" class="checkText inputCheck" type="checkbox">Deactivate
+                        </div>
+                    </div>
+                </div>
+                <div class="decription">
+                    <label for="decription"><b>Decription</b>
+                        <br>
+                        <textarea name="" id="editTextarea">...</textarea>
+
+                    </label>
+                    <div class="button">
+                        <button id="btn-BackformEdit">Back</button>
+                        <button id="btn-Save">Save+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/utils.js" defer></script>
+    <!-- defer giúp load DOM xong trước khi load JS -->
+</body>
+
+</html>
